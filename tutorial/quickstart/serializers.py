@@ -13,3 +13,4 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ['url', 'name']
         #test comment for TRAVIS-CI
+        #second test comment
