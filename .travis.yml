@@ -1,11 +1,9 @@
 language: python # => 1
     python: # => 2
       - "3.7"
-    #services: # => 3
-      #- sqlite
-    env: # => 4
-      - DJANGO=2.2 DB=sqlite
+    env:
+      - DJANGO=2.2.4 DB=sqlite
     install: # => 5
       - pip install -r requirements.txt
-    #script: # => 7
-    #  - python manage.py runserver
+    script: # => 7
+      - python3 manage.py runserver
