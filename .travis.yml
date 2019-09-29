@@ -1,14 +1,12 @@
 language: python # => 1
     python: # => 2
       - "3.7"
-    services: # => 3
-      - sqlite
+    #services: # => 3
+      #- sqlite
     env: # => 4
       -DJANGO=2.2 DB=sqlite
-    install: # => 5 
+    install: # => 5
       - pip install Django
       - pip install djangorestframework
-  #l  before_script: # => 6
-      #- mysql -e 'create database test;' -u root
     script: # => 7
       - python manage.py runserver
