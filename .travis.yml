@@ -1,14 +1,11 @@
 language: python # => 1
     python: # => 2
-      - "2.6"
-      - "2.7"
       - "3.7"
     services: # => 3
       - sqlite
     env: # => 4
       -DJANGO=2.2 DB=sqlite
-    install: # => 5
-      - pip install -r requirements.txt
+    install: # => 5 
       - pip install Django
       - pip install djangorestframework
   #l  before_script: # => 6
