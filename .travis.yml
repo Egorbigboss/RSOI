@@ -10,3 +10,10 @@ script:
 - python manage.py makemigrations
 - python manage.py migrate
 - python manage.py test
+deploy:
+  provider: heroku
+  api_key:
+    secure: 3f88bd02-07ea-4568-b4e5-ac696e3e1d8e
+  app: rsoibal1
+  on:
+    repo: Egorbigboss/RSOI
