@@ -15,6 +15,8 @@ import django_heroku
 import dj_database_url
 import dotenv
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
@@ -30,6 +32,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 # Application definition
 
@@ -122,13 +127,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-django_heroku.settings(locals())
-del DATABASES['default']['OPTIONS']['sslmode']
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+django_heroku.settings(locals())
+try:
+    del DATABASES['default']['OPTIONS']['sslmode']
+except KeyError:
+    pass
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
